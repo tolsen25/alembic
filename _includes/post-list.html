@@ -1,18 +1,16 @@
 {% if paginator.posts %}
   <section class="section  typeset">
+    <hr style="color: gray;">
     <ul class="list  list--posts">
       {% for page in paginator.posts %}
         <li class="item  item--post">
           <article class="article  article--post">
-            <hr style="color: gray;">
+            
             <h2><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></h2>
             {% include post-meta.html %}
             <!-- {{ page.excerpt | markdownify | truncatewords: 20 }} -->
             <!-- {{ page.excerpt | replace_first: "<h2>", "<h4>" | replace_first: "</h2>", "</h4>" | markdownify | truncatewords: 20 }} -->
-          {% assign subtitle_start = page.content | split: "<h2>" | size %}
-          {% if subtitle_start > 1 %}
-              <h4 style="font-size: 1em; margin-bottom: 10px;">{{ page.content | split: "<h2>" | last | replace_first: "</h2>", "" | markdownify }}</h4>
-          {% endif %}
+      
 
 
 
