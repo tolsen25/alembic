@@ -10,7 +10,7 @@
             {% include post-meta.html %}
             <!-- {{ page.excerpt | markdownify | truncatewords: 20 }} -->
             <!-- {{ page.excerpt | replace_first: "<h2>", "<h4>" | replace_first: "</h2>", "</h4>" | markdownify | truncatewords: 20 }} -->
-            {% if post.description %}
+            {% if page.description %}
               <p class="post-description">{{ post.description }}</p>
             {% endif %}
 
