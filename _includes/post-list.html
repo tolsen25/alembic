@@ -9,12 +9,13 @@
             {% include post-meta.html %}
             <!-- {{ page.excerpt | markdownify | truncatewords: 20 }} -->
             <!-- {{ page.excerpt | replace_first: "<h2>", "<h4>" | replace_first: "</h2>", "</h4>" | markdownify | truncatewords: 20 }} -->
-            {% assign excerpt_parts = page.excerpt | split: "<h2>" %}
-            {% if excerpt_parts.size > 1 %}
-              {{ excerpt_parts[0] | markdownify | truncatewords: 20 }}<h4>{{ excerpt_parts[1] | replace_first: "</h2>", "" | markdownify }}</h4>
-            {% else %}
-              {{ page.excerpt | markdownify | truncatewords: 20 }}
-            {% endif %}
+           {% assign excerpt_parts = page.excerpt | split: "<h2>" %}
+           {% if excerpt_parts.size > 1 %}
+             {{ excerpt_parts[0] | markdownify | truncatewords: 20 }}<h4 style="font-size: 1em; margin-bottom: 10px;">{{ excerpt_parts[1] | replace_first: "</h2>", "" | markdownify }}</h4>
+           {% else %}
+            {{ page.excerpt | markdownify | truncatewords: 20 }}
+           {% endif %}
+
 
 
           </article>
