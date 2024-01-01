@@ -4,11 +4,17 @@
       {% for page in paginator.posts %}
         <li class="item  item--post">
           <article class="article  article--post">
-
-            <h1><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></h1>
+            <hr style="color: gray;">
+            <h2><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></h2>
             {% include post-meta.html %}
             <!-- {{ page.excerpt | markdownify | truncatewords: 20 }} -->
             <!-- {{ page.excerpt | replace_first: "<h2>", "<h4>" | replace_first: "</h2>", "</h4>" | markdownify | truncatewords: 20 }} -->
+            {% assign excerpt_parts = page.excerpt | split: "<h2>" %}
+            {% if excerpt_parts.size > 1 %}
+              {{ excerpt_parts[0] | markdownify | truncatewords: 20 }}<h4>{{ excerpt_parts[1] | replace_first: "</h2>", "" | markdownify }}</h4>
+            {% else %}
+              {{ page.excerpt | markdownify | truncatewords: 20 }}
+            {% endif %}
 
 
           </article>
